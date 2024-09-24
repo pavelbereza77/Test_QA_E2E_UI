@@ -23,7 +23,7 @@
 `python main.py`
 
 ### **Запуск Ui теста**
-`python test_ui.py`
+`python -m unittest test_ui.py`
 
 ### **Тест выполняет следующие действия:**
 **Авторизация:** 
