@@ -3,6 +3,9 @@ from pages.locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
+    USERNAME = 'standard_user'
+    PASSWORD = 'secret_sauce'
+
     def should_login_form(self):
         self.should_present_form_login()
         self.should_user_name()
@@ -21,12 +24,21 @@ class LoginPage(BasePage):
     def should_button_login(self):
         assert self.is_element_present(*LoginPageLocators.LOGIN_BUTTON), 'Not button login'
 
-    def input_user_name(self, username):
-        self.browser.find_element(*LoginPageLocators.USERNAME_INPUT).send_keys(username)
-        input_username = self.browser.find_element(*LoginPageLocators.USERNAME_INPUT).text
-        assert input_username == username, 'The user name entered does not match the one displayed'
+    def input_user_name(self):
+        self.browser.find_element(*LoginPageLocators.USERNAME_INPUT).send_keys(self.USERNAME)
 
-    def input_password(self, password):
-        self.browser.find_element(*LoginPageLocators.PASSWORD_INPUT).send_keys(password)
-        input_password = self.browser.find_element(*LoginPageLocators.USERNAME_INPUT).text
-        assert input_password == password, 'The password entered does not match the one displayed'
+    def verification_of_correct_input_username(self):
+        input_username = self.browser.find_element(*LoginPageLocators.USERNAME_INPUT)
+        input_username_value = input_username.get_attribute("value")
+        assert input_username_value == self.USERNAME, 'The user name entered does not match the one displayed'
+
+    def input_password(self):
+        self.browser.find_element(*LoginPageLocators.PASSWORD_INPUT).send_keys(self.PASSWORD)
+
+    def verification_of_correct_input_password(self):
+        input_password = self.browser.find_element(*LoginPageLocators.PASSWORD_INPUT)
+        input_password_value = input_password.get_attribute("value")
+        assert input_password_value == self.PASSWORD, 'The password entered does not match the one displayed'
+
+    def goo_too_page_product(self):
+        self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON).click()

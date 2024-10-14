@@ -4,6 +4,8 @@ from selenium.common import NoSuchElementException, NoAlertPresentException, Tim
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from pages.locators import LoginPageLocators
+
 
 class BasePage():
     def __init__(self, browser, url, timeout=5):
@@ -21,3 +23,4 @@ class BasePage():
             return False
 
         return True
+
