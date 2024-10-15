@@ -4,7 +4,7 @@ from selenium.common import NoSuchElementException, NoAlertPresentException, Tim
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from pages.locators import LoginPageLocators
+from pages.locators import BasketLocators
 
 
 class BasePage():
@@ -24,3 +24,11 @@ class BasePage():
 
         return True
 
+    def should_cart_link(self):
+        assert self.is_element_present(*BasketLocators.LINK_CART), 'Not link cart'
+
+    def click_link_cart(self):
+        self.browser.find_element(*BasketLocators.LINK_CART).click()
+
+    def get_list_product_in_cart(self):
+        return [product.text for product in self.browser.find_elements(*BasketLocators.ITEM_CART)]

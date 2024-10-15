@@ -13,4 +13,4 @@ def test_login_page(browser):
     page.input_password()
     page.verification_of_correct_input_password()
     page.goo_too_page_product()
-    time.sleep(10)
+    time.sleep(5)
