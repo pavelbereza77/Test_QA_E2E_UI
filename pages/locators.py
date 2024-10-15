@@ -19,9 +19,17 @@ class BasketLocators():
 
 
 class ProductPageLocators():
+    PRODUCT_NAME_LOCATOR = 'Sauce Labs Backpack'
     PAGE_FORM = (By.CSS_SELECTOR, '.inventory_details_container')
     BUTTON_ADD_PRODUCT_IN_CART = (By.CSS_SELECTOR, '#add-to-cart')
-    NAME_PRODUCT = (By.CLASS_NAME, '.inventory_details_name')
+    # NAME_PRODUCT = (By.CLASS_NAME, '.inventory_details_name')
+    BUTTON_BACK_PRODUCTS = (By.CSS_SELECTOR, '#back-to-products')
+
+
+class BasketPageLocators():
+    CART_FORM = (By.CSS_SELECTOR, '#cart_contents_container')
+    BUTTON_CONTINUE_SHOPPING = (By.CSS_SELECTOR, '#continue-shopping')
+    BUTTON_CHECKOUT = (By.CSS_SELECTOR, '#checkout')
 
 
 def locator_name_product_link(name_product):
