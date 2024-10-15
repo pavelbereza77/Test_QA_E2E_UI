@@ -32,6 +32,15 @@ class BasketPageLocators():
     BUTTON_CHECKOUT = (By.CSS_SELECTOR, '#checkout')
 
 
+class SalePageLocators():
+    SALE_FORM = (By.CSS_SELECTOR, '#checkout_info_container')
+    BUTTON_CANCEL = (By.CSS_SELECTOR, '#cancel')
+    BUTTON_CONTINUE = (By.CSS_SELECTOR, '#continue')
+    SALE_FIELD_FIRST_NAME = (By.CSS_SELECTOR, '#first-name')
+    SALE_FIELD_LAST_NAME = (By.CSS_SELECTOR, '#last-name')
+    SALE_FIELD_POSTAL_CODE = (By.CSS_SELECTOR, '#postal-code')
+
+
 def locator_name_product_link(name_product):
     return (By.XPATH, f"//div[text() ='{name_product}']")
 

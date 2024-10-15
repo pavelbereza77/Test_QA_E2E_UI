@@ -16,3 +16,6 @@ class BasketPage(BasePage):
 
     def should_button_checkout(self):
         assert self.is_element_present(*BasketPageLocators.BUTTON_CHECKOUT), 'Not button checkout'
+
+    def click_checkout(self):
+        self.browser.find_element(*BasketPageLocators.BUTTON_CHECKOUT).click()
