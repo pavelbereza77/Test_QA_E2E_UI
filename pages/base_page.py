@@ -4,7 +4,7 @@ from selenium.common import NoSuchElementException, NoAlertPresentException, Tim
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from pages.locators import BasketLocators
+from pages.locators import BasketLocators,OverviewPageLocators
 
 
 class BasePage():
@@ -32,3 +32,9 @@ class BasePage():
 
     def get_list_product_in_cart(self):
         return [product.text for product in self.browser.find_elements(*BasketLocators.ITEM_CART)]
+
+    def get_sale_products(self):
+        return [product.text for product in self.browser.find_elements(*OverviewPageLocators.PRODUCT_IN_OVERVIEW_FORM)]
+
+    def get_total_sum_sale(self):
+        return sum([float(price.text[1:]) for price in self.browser.find_elements(*OverviewPageLocators.PRICE_PRODUCT)])

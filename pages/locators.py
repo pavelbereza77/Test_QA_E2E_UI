@@ -22,7 +22,6 @@ class ProductPageLocators():
     PRODUCT_NAME_LOCATOR = 'Sauce Labs Backpack'
     PAGE_FORM = (By.CSS_SELECTOR, '.inventory_details_container')
     BUTTON_ADD_PRODUCT_IN_CART = (By.CSS_SELECTOR, '#add-to-cart')
-    # NAME_PRODUCT = (By.CLASS_NAME, '.inventory_details_name')
     BUTTON_BACK_PRODUCTS = (By.CSS_SELECTOR, '#back-to-products')
 
 
@@ -41,9 +40,22 @@ class SalePageLocators():
     SALE_FIELD_POSTAL_CODE = (By.CSS_SELECTOR, '#postal-code')
 
 
-def locator_name_product_link(name_product):
+class OverviewPageLocators():
+    OVERVIEW_FORM = (By.CSS_SELECTOR, '#checkout_summary_container')
+    PRODUCT_IN_OVERVIEW_FORM = (By.CSS_SELECTOR, '.inventory_item_name')
+    PRICE_PRODUCT = (By.CSS_SELECTOR, '.inventory_item_price')
+    TOTAL_PRICE = (By.CSS_SELECTOR, '.summary_subtotal_label')
+    TAX = (By.CSS_SELECTOR, '.summary_tax_label')
+    TOTAL_ORDER = (By.CSS_SELECTOR, '.summary_total_label')
+    BUTTON_CANCEL_OVERVIEW_PAGE = (By.CSS_SELECTOR, '#cancel')
+    BUTTON_FINISH_PAGE = (By.CSS_SELECTOR, '#finish')
+
+
+def locator_name_product_link():
+    name_product = ProductPageLocators.PRODUCT_NAME_LOCATOR
     return (By.XPATH, f"//div[text() ='{name_product}']")
 
 
-def locator_button_add_basket(name_product):
+def locator_button_add_basket():
+    name_product = ProductPageLocators.PRODUCT_NAME_LOCATOR
     return (By.CSS_SELECTOR, f"#add-to-cart-{name_product.lower().replace(' ', '-')}")
