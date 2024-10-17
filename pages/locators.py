@@ -51,6 +51,11 @@ class OverviewPageLocators():
     BUTTON_FINISH_PAGE = (By.CSS_SELECTOR, '#finish')
 
 
+class FinishPageLocators():
+    FINISH_PAGE_FORM = (By.CSS_SELECTOR, '#checkout_complete_container')
+    BUTTON_BACK_HOME = (By.CSS_SELECTOR, '#back-to-products')
+
+
 def locator_name_product_link():
     name_product = ProductPageLocators.PRODUCT_NAME_LOCATOR
     return (By.XPATH, f"//div[text() ='{name_product}']")
